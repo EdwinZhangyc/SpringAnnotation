@@ -1,0 +1,22 @@
+group 'com.zyc'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+//构建为jar包默认自带打为jar包的组件所以无需添加  apply plugin:'jar'
+jar{
+    baseName='cantacts'
+    version='0.1.0'
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    //spring 核心组件
+    compile 'org.springframework:spring-context:4.3.14.RELEASE'
+}
