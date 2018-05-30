@@ -1,10 +1,7 @@
 package com.zyc.annotation;
 
 import com.zyc.annotation.bean.Person;
-import com.zyc.annotation.config.MainConfig;
-import com.zyc.annotation.config.MainConfigOfConditional;
-import com.zyc.annotation.config.MainConfigOfImport;
-import com.zyc.annotation.config.MainConfigOfLiftCycle;
+import com.zyc.annotation.config.*;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -43,12 +40,15 @@ public class IOCTest {
 
     @Test
     public void Test03() {
-        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfigOfImport.class);
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfigOfRegisterBean.class);
         String[] beanNamesForType = applicationContext.getBeanDefinitionNames();
         for (String s :
                 beanNamesForType) {
             System.out.println(s);
         }
+        Object bean = applicationContext.getBean("myFactoryBean");
+        System.out.println(bean.getClass());
+
     }
 
     @Test
@@ -56,4 +56,32 @@ public class IOCTest {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfigOfLiftCycle.class);
         applicationContext.close();
     }
+    @Test
+    public void TestOfValue(){
+
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfigOfValue.class);
+        Person bean = applicationContext.getBean(Person.class);
+        System.out.println(bean);
+
+    }
+    @Test
+    public void TestOfAutowired(){
+
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfigOfAutowired.class);
+
+    }
+
+    @Test
+    public void TestOfProfile(){
+        //ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfigOfProfile.class);
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
+        applicationContext.getEnvironment().setActiveProfiles("dev", "prov");
+        applicationContext.register(MainConfigOfProfile.class);
+        applicationContext.refresh();
+        String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
+        for (String s : beanDefinitionNames) {
+            System.out.println(s);
+        }
+    }
+
 }

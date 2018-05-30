@@ -1,12 +1,24 @@
 package com.zyc.annotation.config;
 
+import com.zyc.annotation.bean.Blue;
+import com.zyc.annotation.bean.MyFactoryBean;
 import com.zyc.annotation.bean.Person;
 import com.zyc.annotation.condition.MyImportBeanDefinitionRegister;
 import com.zyc.annotation.condition.MyImportSelector;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
+import javax.inject.Inject;
+
+/**
+ * 本类写名将组件注入容器的几种的方式
+ */
 @Configuration
+//1、使用自动扫描，扫描带有（@Controller，@Service，@Repository，@Component） 局限于自己写的组件
+@ComponentScan
+//3、使用import注解的三種方式
 @Import({Person.class, MyImportSelector.class, MyImportBeanDefinitionRegister.class})
 /**
  * @Import（快速的给容器导入一个组件）如注释中所示import一共可以使用三种方式进行导入组件
@@ -15,5 +27,19 @@ import org.springframework.context.annotation.Import;
  * @Import({ImportSelector.class}) ImportSelector返回类全名称的一个数组，配置类将数组中的所有类注册到容器中
  * 3）ImportBeanDefinitionRegister接口：手工导入所要导入的组件  可以添加一些条件进行
  */
-public class MainConfigOfImport {
+public class MainConfigOfRegisterBean {
+
+    //2 使用@Bean的方式注入組件
+    @Bean
+    public Blue blue(){
+        return new Blue();
+    }
+
+    //4 使用實現FactoryBean接口的方式，在注入到容器中
+    @Bean
+    public MyFactoryBean myFactoryBean(){
+        return new MyFactoryBean();
+    }
+
+
 }

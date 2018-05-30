@@ -1,10 +1,25 @@
 package com.zyc.annotation.bean;
 
+import org.springframework.beans.factory.annotation.Value;
+
 public class Person {
 
+    @Value("aa")
     private String name;
 
+    @Value("#{20-3}")
     private Integer age;
+
+    @Value("${nick.name}")
+    private String nickName;
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
 
     public Person(String name, Integer age) {
         this.name = name;
@@ -35,6 +50,7 @@ public class Person {
         return "Person{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
+                ", nickName='" + nickName + '\'' +
                 '}';
     }
 }
