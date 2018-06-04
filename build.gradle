@@ -19,6 +19,8 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     //spring 核心组件
     compile 'org.springframework:spring-context:4.3.14.RELEASE'
+    //spring AOP
+    compile 'org.springframework:spring-aspects:4.3.14.RELEASE'
     // # https://mvnrepository.com/artifact/javax.inject/javax.inject
     compile 'javax.inject:javax.inject:1'
 
@@ -27,6 +29,8 @@ dependencies {
 
     //  mysql連接 # https://mvnrepository.com/artifact/mysql/mysql-connector-java
     compile 'mysql:mysql-connector-java:5.1.44'
+
+
 
 
 

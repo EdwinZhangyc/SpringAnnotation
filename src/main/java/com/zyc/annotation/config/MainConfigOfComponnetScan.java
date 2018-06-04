@@ -32,7 +32,7 @@ import org.springframework.stereotype.Controller;
 //FilterType.REGEX：使用正则表达式
 //FilterType.CUSTOM：使用自定义表达式  （很重要）
 
-public class MainConfig {
+public class MainConfigOfComponnetScan {
 
     //给容器注册一个bean，id默认为方法名字
     @Bean

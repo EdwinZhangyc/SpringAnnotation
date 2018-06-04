@@ -13,7 +13,7 @@ public class IOCTest {
     @Test
     public void testBeanNames(){
 
-        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfig.class);
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfigOfComponnetScan.class);
         //打印所有bean名称
         String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
         for (String s: beanDefinitionNames
