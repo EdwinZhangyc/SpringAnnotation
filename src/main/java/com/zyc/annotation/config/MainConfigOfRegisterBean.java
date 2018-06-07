@@ -3,14 +3,12 @@ package com.zyc.annotation.config;
 import com.zyc.annotation.bean.Blue;
 import com.zyc.annotation.bean.MyFactoryBean;
 import com.zyc.annotation.bean.Person;
-import com.zyc.annotation.condition.MyImportBeanDefinitionRegister;
-import com.zyc.annotation.condition.MyImportSelector;
+import com.zyc.annotation.bean.MyImportBeanDefinitionRegister;
+import com.zyc.annotation.bean.MyImportSelector;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-
-import javax.inject.Inject;
 
 /**
  * 本类写名将组件注入容器的几种的方式

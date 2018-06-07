@@ -1,6 +1,5 @@
-package com.zyc.annotation.condition;
+package com.zyc.annotation.bean;
 
-import com.zyc.annotation.bean.Red;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.RootBeanDefinition;
 import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;

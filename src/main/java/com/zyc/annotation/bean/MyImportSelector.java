@@ -1,4 +1,4 @@
-package com.zyc.annotation.condition;
+package com.zyc.annotation.bean;
 
 import org.springframework.context.annotation.ImportSelector;
 import org.springframework.core.type.AnnotationMetadata;
