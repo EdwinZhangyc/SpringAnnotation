@@ -2,6 +2,7 @@ package com.zyc.annotation;
 
 import com.zyc.annotation.config.MainConfigOfExtends;
 import org.junit.Test;
+import org.springframework.context.ApplicationEvent;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class ExtTest {
@@ -9,6 +10,8 @@ public class ExtTest {
     @Test
     public void test(){
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfigOfExtends.class);
-
+        //發佈一個事件
+        applicationContext.publishEvent(new ApplicationEvent(new String("發佈一個事件")) {});
+        applicationContext.close();
     }
 }
