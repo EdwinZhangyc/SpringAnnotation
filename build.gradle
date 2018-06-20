@@ -4,10 +4,18 @@ version '1.0-SNAPSHOT'
 apply plugin: 'java'
 
 //构建为jar包默认自带打为jar包的组件所以无需添加  apply plugin:'jar'
+//构建为web项目  以war包的形式发布
+apply plugin: 'war'
+war{
+    baseName = 'contacts'
+    version = '0.1.0'
+}
+
 jar{
     baseName='cantacts'
     version='0.1.0'
 }
+
 
 sourceCompatibility = 1.8
 
